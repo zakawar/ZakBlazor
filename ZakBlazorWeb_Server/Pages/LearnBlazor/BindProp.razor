@@ -1,19 +1,39 @@
 ﻿@page "/LearnBlazor/BindProp"
+@using ZakBlazor_Models.LearnBlazorModels;
 <h3>BindProp</h3>
 
 Id : @product.Id <br />
+Active : @product.IsActive <br />
 Name : @product.Name <br />
 Price : @product.Price <br />
+This Product is : @(@product.IsActive ? "Active":"Inactive") <br />
+<div>
+    <label>Active</label>
+    <input type="checkbox" @bind="@product.IsActive" @bind:event="oninput"/>
+</div>
+
 Price : <input @bind-value="@product.Price" @bind-value:event="oninput"/> <br />
-Price : <input @bind="@product.Price" @bind:event="oninput"/> <br />
+
+@*Price : <input @bind="@product.Price" @bind:event="oninput"/> <br />*@
 
 
 @code {
-    ZakBlazor_Models.LearnBlazorModels.Demo_Product product = new()
+
+    ZakBlazor_Models.LearnBlazorModels.Demo_Product product = new ()
         {
             Id = 1,
             Name = "Allo",
             Price = 10.99,
             IsActive = true
-    };
+        };
+
+             
+
+
+   
+    
+
+    
+
+
 }
