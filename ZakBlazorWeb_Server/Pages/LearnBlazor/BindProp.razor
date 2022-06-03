@@ -1,6 +1,19 @@
 ﻿@page "/LearnBlazor/BindProp"
 <h3>BindProp</h3>
 
-@code {
+Id : @product.Id <br />
+Name : @product.Name <br />
+Price : @product.Price <br />
+Price : <input @bind-value="@product.Price" @bind-value:event="oninput"/> <br />
+Price : <input @bind="@product.Price" @bind:event="oninput"/> <br />
 
+
+@code {
+    ZakBlazor_Models.LearnBlazorModels.Demo_Product product = new()
+        {
+            Id = 1,
+            Name = "Allo",
+            Price = 10.99,
+            IsActive = true
+    };
 }
