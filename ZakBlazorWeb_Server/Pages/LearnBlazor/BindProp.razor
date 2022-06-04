@@ -13,8 +13,8 @@
         Key choose:
         @if (@propID != 0)
         {
-            @product.ProductProperties.FirstOrDefault(t=>t.Id==@propID).Key
-            ;
+            @product.ProductProperties.FirstOrDefault(t=>t.Id==@propID).Key;
+            
         }
         else
         {
@@ -24,8 +24,8 @@
         Value choose:
         @if (@propID != 0)
         {
-            @product.ProductProperties.FirstOrDefault(t=>t.Id==@propID).Value
-            ;
+            @product.ProductProperties.FirstOrDefault(t=>t.Id==@propID).Value;
+            
         }
         else
         {
