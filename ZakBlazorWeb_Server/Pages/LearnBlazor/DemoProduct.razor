@@ -1,34 +1,15 @@
 ﻿@page "/learnblazor/demoproduct"
-<h2 class="text-success">DemoProduct</h2>
-<div class="row">
-
-    @foreach(var prop in Products)
-    {
-        <div class="col-6">
-            Product - @Increment()<br/><br/>
-            
-            Name - @prop.Name<br/>
-            Show Properties : <input type="checkbox"  @bind-value="@isactive"  checked="@(@isactive?"checked":null)"/><br/>
-
-            @if (@isactive)
-            {
-                 @foreach(var pr in prop.ProductProperties)
-                {
-                    <p> @pr.Key - @pr.Value </p>
-                }
-            }    
-             
-
-        </div>
-    }
-    
-    
-
+<h2 class="text-primary">DemoProduct</h2>
+<div class="border p-2 mt-2" style="background-color:azure;">
+    <div class="row">
+        @foreach (var prop in Products)
+        {
+            <_Product prod="prop"></_Product>
+        }
+    </div>
 </div>
 
 @code {
-    private int count=0;
-    private bool isactive=false;
     List<Demo_Product> Products = new();
 
     protected override void OnInitialized()
@@ -60,14 +41,6 @@
                     new Demo_ProductProp {Id = 3,Key = "Color",Value = "White"}
                 }
             });
-    }
-
-    private int Increment()
-    {
-        count++;
-        if (count % 2 == 0)
-            return 2;
-        return 1;
     }
 
 }
