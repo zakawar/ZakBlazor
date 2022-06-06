@@ -6,7 +6,7 @@
 </_ChildComponent>
 <p>@messageText</p>
 
-
+<_AnotherChildComponent placeholder="text from parent" test="test1"> </_AnotherChildComponent>
 @code {
     private string messageText = "";
 
@@ -14,4 +14,6 @@
     {
         messageText = "It's a test message";
     }
+
+    
 }
