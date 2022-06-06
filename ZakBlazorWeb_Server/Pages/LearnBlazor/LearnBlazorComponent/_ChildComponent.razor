@@ -1,0 +1,36 @@
+﻿<div>
+    <div class="alert alert-info">@Title</div>
+    <div>
+        @if (ChildContent!=null)
+        {
+            <span>@ChildContent</span>
+        }
+    </div>
+    <div>
+        @if (DangerContent!=null)
+        {
+            <span>@DangerContent</span>
+        }
+    </div>
+    <input type="button" class="btn btn-danger" @onclick="Onmessage" value="Button to be clicked"/>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public RenderFragment DangerContent { get; set; }
+
+    [Parameter]
+    public EventCallback Onmessage { get; set; }
+
+
+
+
+
+
+}

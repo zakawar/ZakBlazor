@@ -6,7 +6,10 @@
     <div class="row">
         @foreach (var prop in Products)
         {
-            <_Product prod="prop" OnFavoriteUpdate="FavouriteCountUpdate" OnLastProduct="LastProductName"></_Product>
+            <_Product prod="prop" OnFavoriteUpdate="FavouriteCountUpdate" OnLastProduct="LastProductName">
+                <ChildContent1>1</ChildContent1>
+                <ChildContent2>2</ChildContent2>
+            </_Product>
         }
     </div>
 </div>
@@ -15,6 +18,7 @@
     List<Demo_Product> Products = new();
     private int SelectedFavouriteCount { get; set; } = 0;
     private string LastSelected { get; set; }
+
 
     protected override void OnInitialized()
     {

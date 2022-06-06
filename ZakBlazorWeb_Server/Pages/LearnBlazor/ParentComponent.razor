@@ -1,0 +1,17 @@
+﻿@page "/LearnBlazor/ParentComponent"
+
+<_ChildComponent Title= "test" Onmessage="ShowMessage">
+    <ChildContent>It's a render Fragment </ChildContent>
+    <DangerContent>Danger !!!</DangerContent>
+</_ChildComponent>
+<p>@messageText</p>
+
+
+@code {
+    private string messageText = "";
+
+    private void ShowMessage()
+    {
+        messageText = "It's a test message";
+    }
+}
