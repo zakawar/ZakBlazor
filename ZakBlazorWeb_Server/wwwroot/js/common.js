@@ -8,6 +8,20 @@
     }
 }
 
-Swal.fire=(title, text,icon)=> {
+window.ShowSawl = (type, message) => {
+    if (type === "success") {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success Notification!',
+            text: message            
+        })
+    }
 
+    if (type === "error") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error Notification!',
+            text: message    
+        })
+    }
 }

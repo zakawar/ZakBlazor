@@ -2,19 +2,19 @@
 <h3>BlazorJs</h3>
 @inject IJSRuntime _ijsruntime
 
-
 <div class="row">
-    <input type="button" class="btn btn-secondary" @onclick="TestConfirmBox" value="Test Confirm Button" />
-
-    <input type="button" class="btn btn-success" @onclick="Toastrsuccess" value="Toaster success" />
-
-    <input type="button" class="btn btn-danger" @onclick="Toastrfailure" value="Toaster failure" />
-
-     <input type="button" class="btn btn-success" @onclick="SweetAlertsuccess" value="SweetAlert Success" />
-
-      <input type="button" class="btn btn-danger" @onclick="SweetAlertfailure" value="SweetAlert failure" />
-
+    <input type="button" class="btn btn-secondary m-2" style="width:200px;" @onclick="TestConfirmBox" value="Test Confirm Button" /> 
 </div>
+<div class="row">
+    <input type="button" class="btn btn-success m-2" style="width:200px;" @onclick="Toastrsuccess" value="Toaster success" />
+    <input type="button" class="btn btn-danger m-2" style="width:200px;" @onclick="Toastrfailure" value="Toaster failure" />
+</div>
+<br />
+<div class="row">
+    <input type="button" class="btn btn-success m-2" style="width:200px;" @onclick="SweetAlertsuccess" value="SweetAlert Success" />
+    <input type="button" class="btn btn-danger m-2" style="width:200px;" @onclick="SweetAlertfailure" value="SweetAlert failure" />
+</div>
+
 
 <div class="row">
     @if (ConfirmResult)
@@ -40,23 +40,33 @@
     private async Task Toastrsuccess()
     {
         await  _ijsruntime.ToastrSuccess("Success");
-
     }
 
     private async Task Toastrfailure()
     {
         await _ijsruntime.ToastrError("Error");
-
     }
 
     private async Task SweetAlertsuccess()
     {
-        await SweetAlertsuccess();
+        await _ijsruntime.SwalSuccess("Task completed successfully");
     }
 
     private async Task SweetAlertfailure()
     {
-        await SweetAlertfailure();
+        await _ijsruntime.SwalError("Task failed!");
     }
 
+    /*
+    private async Task SweetAlertsuccess()
+    {
+        await _ijsruntime.InvokeVoidAsync("ShowSawl", "success", "Task completed successfully");
+
+    }
+
+    private async Task SweetAlertfailure()
+    {
+        await _ijsruntime.InvokeVoidAsync("ShowSawl", "error", "Task failed!");
+    }
+    */
 }
