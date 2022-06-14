@@ -13,6 +13,7 @@
 <div class="row">
     <input type="button" class="btn btn-success m-2" style="width:200px;" @onclick="SweetAlertsuccess" value="SweetAlert Success" />
     <input type="button" class="btn btn-danger m-2" style="width:200px;" @onclick="SweetAlertfailure" value="SweetAlert failure" />
+    <input type="button" class="btn btn-warning m-2" style="width:200px;" @onclick="SweetAlertwarning" value="SweetAlert warning" />
 </div>
 
 
@@ -57,6 +58,10 @@
         await _ijsruntime.SwalError("Task failed!");
     }
 
+    private async Task SweetAlertwarning()
+    {
+        await _ijsruntime.SwalWarning("Be carefull!");
+    }
     /*
     private async Task SweetAlertsuccess()
     {

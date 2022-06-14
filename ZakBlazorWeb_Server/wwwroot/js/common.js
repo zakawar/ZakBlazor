@@ -24,4 +24,11 @@ window.ShowSawl = (type, message) => {
             text: message    
         })
     }
+    if (type === "warning") {
+        Swal.fire({
+            icon: 'warning',
+            title: 'warning Notification!',
+            text: message
+        })
+    }
 }
