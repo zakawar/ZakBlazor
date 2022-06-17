@@ -11,7 +11,7 @@ namespace ZakBlazor_DataAccess
     {
         [Key]
         public int Id { get; set; }
-        [Required]  
+        [Required]
         public string? Name { get; set; }
 
         public DateTime CreatedTime { get; set; }
