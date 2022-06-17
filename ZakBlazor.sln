@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZakBlazorWeb_Client", "ZakB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZakBlazor_Models", "ZakBlazor_Models\ZakBlazor_Models.csproj", "{B2B89766-4E60-4BD9-B3B0-2BAB741279A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZakBlazor_Business", "ZakBlazor_Business\ZakBlazor_Business.csproj", "{EDFE98B8-10E8-4499-93ED-F1132858CC70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZakBlazor_Business", "ZakBlazor_Business\ZakBlazor_Business.csproj", "{EDFE98B8-10E8-4499-93ED-F1132858CC70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZakBlazor_Common", "ZakBlazor_Common\ZakBlazor_Common.csproj", "{53FE97B7-0914-454E-870E-9B08D062DBA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZakBlazor_Common", "ZakBlazor_Common\ZakBlazor_Common.csproj", "{53FE97B7-0914-454E-870E-9B08D062DBA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZakBlazor_DataAccess", "ZakBlazor_DataAccess\ZakBlazor_DataAccess.csproj", "{5F1FAE70-F37B-4504-BF29-67CBB3178D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZakBlazor_DataAccess", "ZakBlazor_DataAccess\ZakBlazor_DataAccess.csproj", "{5F1FAE70-F37B-4504-BF29-67CBB3178D8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
