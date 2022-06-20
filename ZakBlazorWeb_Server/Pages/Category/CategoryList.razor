@@ -1,14 +1,51 @@
 ﻿@page "/category"
-
+@inject ICategoryRepository _categoryRepository
 <div class="row mt-4">
     <div class="col-6">
         <h4 class="card-title text-primary">Category List</h4>
     </div>
-    <div class="col-4 offset-2">        
+    <div class="col-4 offset-2">
         <a class="btn btn-primary form-control" href="category/create">Add New Category</a>
+    </div>
+
+    <div class="col-9">
+        @if (itemList.Any())
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th> ID </th>
+                        <th> Name </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in itemList)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>
+                                <NavLink href="" class="btn btn-primary">Edit</NavLink>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
     </div>
 </div>
 
 @code {
+    private IEnumerable<CategoryDTO> itemList { get; set; } = new List<CategoryDTO>();
 
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Run(LoadCategories);
+    }
+
+    private void LoadCategories()
+    {
+        itemList = _categoryRepository.GetAll();
+    }
 }
