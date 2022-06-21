@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ZakBlazor_Models\ZakBlazor_Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>
