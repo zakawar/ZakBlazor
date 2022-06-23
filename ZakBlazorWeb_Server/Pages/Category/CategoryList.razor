@@ -1,7 +1,7 @@
 ﻿@page "/category"
 @inject ICategoryRepository _categoryRepository
 @inject IJSRuntime _ijsruntime
-<_DeleteConfirmationComponent ConfirmationChanged="ConfirmDelete_Click"></_DeleteConfirmationComponent>
+<_DeleteConfirmationComponent isProcessing="isLoading" ConfirmationChanged="ConfirmDelete_Click"></_DeleteConfirmationComponent>
 <div class="row mt-4">
     <div class="col-6">
         <h4 class="card-title text-primary">Category List</h4>
@@ -55,19 +55,27 @@
     private IEnumerable<CategoryDTO> itemList { get; set; } = new List<CategoryDTO>();
     public bool isLoading { get; set; } = true;
     private int DeleteCategoryid { get; set; } = 0;
-    protected override async Task OnInitializedAsync()
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await Task.Run(LoadCategories);
+        if (firstRender)
+        {
+            await LoadCategories();
+        }
+        
     }
 
-    private void LoadCategories()
+    private async Task LoadCategories()
     {
-        itemList = _categoryRepository.GetAll();
+        isLoading = true;
+        StateHasChanged();
+        itemList = await _categoryRepository.GetAll();
         isLoading = false;
+        StateHasChanged();
     }
 
     private void HandleDelete(int id)
-    {        
+    {
         DeleteCategoryid = id;
         _ijsruntime.InvokeVoidAsync("ShowDeleteConfirmationModal");
 
@@ -75,11 +83,13 @@
 
     public async Task ConfirmDelete_Click(bool isConfirmed)
     {
+        isLoading = true;
         if (isConfirmed && DeleteCategoryid != 0)
-        {
-            _categoryRepository.Delete(DeleteCategoryid);
-            LoadCategories();
-            _ijsruntime.InvokeVoidAsync("HideDeleteConfirmationModal");
+        {            
+            await _categoryRepository.Delete(DeleteCategoryid);
+            await LoadCategories();
+            await _ijsruntime.InvokeVoidAsync("HideDeleteConfirmationModal");
         }
+        isLoading = false;
     }
 }
