@@ -47,7 +47,7 @@ namespace ZakBlazor_Business.Repository
 
         public async Task<ProductDTO> Get(int id)
         {
-            var Getobj = await _db.Products.FirstOrDefaultAsync(u => u.Id == id);
+            var Getobj = await _db.Products.Include(u=>u.Category).FirstOrDefaultAsync(u => u.Id == id);
 
             if (Getobj != null)
             {
@@ -60,7 +60,7 @@ namespace ZakBlazor_Business.Repository
 
         public async Task<IEnumerable<ProductDTO>> GetAll()
         {
-            return _mapper.Map<IEnumerable<Product>, IEnumerable<ProductDTO>>(_db.Products);
+            return _mapper.Map<IEnumerable<Product>, IEnumerable<ProductDTO>>(_db.Products.Include(u => u.Category));
         }
 
         Task<ProductDTO> IProductRepository.Update(ProductDTO objDTO)
