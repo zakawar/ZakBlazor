@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,19 +28,19 @@ namespace ZakBlazor_Business.Repository
             var obj = _mapper.Map<CategoryDTO, Category>(objDTO);
             obj.CreatedTime = DateTime.Now;
             var addedobj = _db.Categories.Add(obj);
-            await _db.SaveChangesAsync();
+            _db.SaveChanges();
 
             return _mapper.Map<Category, CategoryDTO>(addedobj.Entity);
         }
 
         public async Task<int> Delete(int id)
         {
-            var deletedObj = await _db.Categories.FirstOrDefaultAsync(u => u.Id == id);
+            var deletedObj = _db.Categories.FirstOrDefault(u => u.Id == id);
 
             if (deletedObj != null)
             {
                 _db.Categories.Remove(deletedObj);
-                return await _db.SaveChangesAsync();
+                return _db.SaveChanges();
 
             }
             return 0;
@@ -49,7 +48,7 @@ namespace ZakBlazor_Business.Repository
 
         public async Task<CategoryDTO> Get(int id)
         {
-            var Getobj = await _db.Categories.FirstOrDefaultAsync(u => u.Id == id);
+            var Getobj = _db.Categories.FirstOrDefault(u => u.Id == id);
 
             if (Getobj != null)
             {
@@ -67,15 +66,16 @@ namespace ZakBlazor_Business.Repository
 
         public async Task<CategoryDTO> Update(CategoryDTO objDTO)
         {
-            var updatedObj = await _db.Categories.FirstOrDefaultAsync(u => u.Id == objDTO.Id);
+            var updatedObj = _db.Categories.FirstOrDefault(u => u.Id == objDTO.Id);
             if (updatedObj != null)
             {
                 updatedObj.Name = objDTO.Name;
                 _db.Categories.Update(updatedObj);
-                await _db.SaveChangesAsync();
+                _db.SaveChanges();
                 return _mapper.Map<Category, CategoryDTO>(updatedObj);
             }
             return objDTO;
         }
+       
     }
 }

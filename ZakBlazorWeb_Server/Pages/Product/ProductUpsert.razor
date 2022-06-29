@@ -24,6 +24,7 @@
                     <InputText class="form-control" @bind-Value="product.Name"></InputText>
                     <ValidationMessage For="()=>product.Name" />
                 </div>
+
                 <div class="form-group">
                     <label> Color </label>
                     <InputText class="form-control" @bind-Value="product.Color"></InputText>
@@ -36,7 +37,6 @@
                     <ValidationMessage For="()=>product.Description" />
                 </div>
 
-
                 <div class="row pt-3">
                     <div class="form-group col-6">
                         <div class="form-check">
@@ -44,32 +44,34 @@
                             <label class="form-check-label">Is Shop Favorites</label>
                         </div>
                     </div>
+
                     <div class="form-group col-6">
                         <div class="form-check">
                             <InputCheckbox @bind-Value="product.CustomerFavorites" class="form-check-input"></InputCheckbox>
                             <label class="form-check-label">Is Customer Favorites</label>
                         </div>
                     </div>
+
                     <div class="form-group col-6">
                         <label>Category</label>
                         <InputSelect @bind-Value="product.CategoryId" class="form-select">
                             <option value="0" disabled="disabled" selected>--Select Category--</option>
                             @foreach (var item in Categories)
                             {
-                            <option value="@item.Id"> @item.Name</option>
+                                <option value="@item.Id"> @item.Name</option>
                             }
-                    </InputSelect>
-                    <ValidationMessage For="()=>product.CategoryId" />
+                        </InputSelect>
+                        <ValidationMessage For="()=>product.CategoryId" />
 
+                    </div>
                 </div>
-            </div>
 
-            <br />
-            <div class="form-group">
-                <button class="btn btn-primary">@Title</button>
-                <NavLink class="btn btn-secondary" href="product">Back to Index</NavLink>
-            </div>
-        </EditForm>
+                <br />
+                <div class="form-group">
+                    <button class="btn btn-primary">@Title</button>
+                    <NavLink class="btn btn-secondary" href="product">Back to Index</NavLink>
+                </div>
+            </EditForm>
         }
     </div>
 </div>
@@ -119,6 +121,5 @@
 
         _navigationManager.NavigateTo("product");
     }
-
 
 }

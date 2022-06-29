@@ -30,12 +30,5 @@ window.ShowSawl = (type, message) => {
             title: 'warning Notification!',
             text: message
         })
-    }    
-}
-function ShowDeleteConfirmationModal() {
-    $('#deleteConfirmationModal').modal('show');
-}
-
-function HideDeleteConfirmationModal() {
-    $('#deleteConfirmationModal').modal('hide');
+    }
 }

@@ -62,12 +62,7 @@ namespace ZakBlazor_Business.Repository
         {
             return _mapper.Map<IEnumerable<Product>, IEnumerable<ProductDTO>>(_db.Products.Include(u => u.Category));
         }
-
-        Task<ProductDTO> IProductRepository.Update(ProductDTO objDTO)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public async Task<ProductDTO> Update(ProductDTO objDTO)
         {
             var updatedObj = await _db.Products.FirstOrDefaultAsync(u => u.Id == objDTO.Id);
