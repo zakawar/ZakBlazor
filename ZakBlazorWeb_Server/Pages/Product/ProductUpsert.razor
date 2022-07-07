@@ -5,6 +5,7 @@
 @inject NavigationManager _navigationManager
 @inject IFileUpload _fileupload
 @inject IJSRuntime _jsRuntime
+@using Syncfusion.Blazor.RichTextEditor
 
 <div class="row my-2">
     <h3 class="card-title text-primary mb-3 ml-3">@Title Product</h3>
@@ -35,7 +36,7 @@
 
                 <div class="form-group">
                     <label> Description </label>
-                    <InputTextArea class="form-control" @bind-Value="product.Description"></InputTextArea>
+                    <SfRichTextEditor @bind-Value="product.Description"> </SfRichTextEditor>                   
                     <ValidationMessage For="()=>product.Description" />
                 </div>
 
