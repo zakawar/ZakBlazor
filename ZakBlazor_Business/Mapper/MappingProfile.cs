@@ -16,6 +16,8 @@ namespace ZakBlazor_Business.Mapper
             CreateMap<CategoryDTO,Category>().ReverseMap();
 
             CreateMap<ProductDTO, Product>().ReverseMap();
+
+            CreateMap<ProductPriceDTO, ProductPrice>().ReverseMap();
         }
     }
 }

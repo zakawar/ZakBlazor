@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZakBlazor_DataAccess.Data;
 
@@ -11,9 +12,10 @@ using ZakBlazor_DataAccess.Data;
 namespace ZakBlazor_DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220708135833_AddProdutPricetoDb")]
+    partial class AddProdutPricetoDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +41,7 @@ namespace ZakBlazor_DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("ZakBlazor_DataAccess.Product", b =>
@@ -79,7 +81,7 @@ namespace ZakBlazor_DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("ZakBlazor_DataAccess.ProductPrice", b =>
@@ -104,7 +106,7 @@ namespace ZakBlazor_DataAccess.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductPrices", (string)null);
+                    b.ToTable("ProductPrices");
                 });
 
             modelBuilder.Entity("ZakBlazor_DataAccess.Product", b =>

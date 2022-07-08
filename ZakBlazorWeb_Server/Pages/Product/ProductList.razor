@@ -42,6 +42,7 @@
                             </td>
                             <td>
                                 <NavLink href="@($"Product/edit/{item.Id}")" class="btn btn-primary">Edit</NavLink>
+                                <NavLink href="@($"Product/edit/{item.Id}")" class="btn btn-secondary">Price</NavLink>
                                 <NavLink class="btn btn-danger" @onclick="()=>HandleDelete(item.Id)">Delete</NavLink>
                             </td>
                         </tr>
@@ -90,7 +91,7 @@
     private void HandleDelete(int id)
     {
         DeleteProductid = id;
-        _ijsruntime.InvokeVoidAsync("ShowDeleteConfirmationModal");
+        _ijsruntime.InvokeVoidAsync("ShowDeleteConfirmationModal");       
 
     }
 
