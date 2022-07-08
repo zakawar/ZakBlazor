@@ -18,6 +18,6 @@ namespace ZakBlazor_Business.Repository.IRepository
 
         public Task<ProductPriceDTO> Get(int id);
 
-        public Task<IEnumerable<ProductPriceDTO>> GetAll();
+        public Task<IEnumerable<ProductPriceDTO>> GetAll(int? id=null);
     }
 }

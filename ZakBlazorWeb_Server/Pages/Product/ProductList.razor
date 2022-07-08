@@ -42,7 +42,7 @@
                             </td>
                             <td>
                                 <NavLink href="@($"Product/edit/{item.Id}")" class="btn btn-primary">Edit</NavLink>
-                                <NavLink href="@($"Product/edit/{item.Id}")" class="btn btn-secondary">Price</NavLink>
+                                <NavLink href="@($"Product/price/{item.Id}")" class="btn btn-success">Price</NavLink>
                                 <NavLink class="btn btn-danger" @onclick="()=>HandleDelete(item.Id)">Delete</NavLink>
                             </td>
                         </tr>

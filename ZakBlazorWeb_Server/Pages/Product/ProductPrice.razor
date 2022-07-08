@@ -1,0 +1,29 @@
+﻿@page "/Product/price/{Id:int}"
+@page "/ProductPrice"
+@inject IProductRepository _productRepository
+@inject IProductPriceRepository _productPriceRepository
+
+
+
+<h3>ProductPrice</h3>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private ProductDTO product { get; set; } = new();
+    private IEnumerable<ProductPriceDTO> productprices { get; set; } = new List<ProductPriceDTO>();
+    private bool isLoading { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            isLoading = true;
+            StateHasChanged();
+            product = await _productRepository.Get(Id);
+            productprices = await _productPriceRepository.GetAll(Id);
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+}
