@@ -5,8 +5,18 @@
 
 
 
-<h3>ProductPrice</h3>
+<h3 class="card-title text-primary mb-3 ml-3">Product Price Management</h3>
 
+@if (isLoading)
+{
+    <div class="text-center">
+        <img src="/images/loading.gif">
+    </div>
+}
+else
+{
+    
+}
 @code {
     [Parameter]
     public int Id { get; set; }
