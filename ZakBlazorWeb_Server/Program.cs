@@ -9,6 +9,8 @@ using ZakBlazorWeb_Server.Service;
 using ZakBlazorWeb_Server.Service.IService;
 using Syncfusion.Blazor;
 
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjcxMTM2QDMyMzAyZTMyMmUzMFV5Q3llNjdDVjFTTm9vbm9ZaWlDZkJYa2g5UVJwWGZEOFN6bFpOb05nZDA9");
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
